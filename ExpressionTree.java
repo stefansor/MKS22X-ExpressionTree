@@ -91,9 +91,12 @@ public class ExpressionTree{
   /*return the value of the specified expression tree*/
 
   public double evaluate(){
-    /*you are to write this method*/
-    return 0.0;
-
+    if(isValue()){
+      return getValue();
+    }
+    else{
+      return apply(getOp(), getLeft().evaluate(), getRight().evaluate());
+    }
   }
 
 
@@ -117,8 +120,14 @@ public class ExpressionTree{
     ExpressionTree one = new ExpressionTree(4.0);
     ExpressionTree two = new ExpressionTree(4.0);
     ExpressionTree three = new ExpressionTree('+', one, two);
-    System.out.println(three.toStringPrefix());
-    System.out.println(three.apply('*', 4.0, 4.0));
+    ExpressionTree four = new ExpressionTree(3.0);
+    ExpressionTree five = new ExpressionTree('*', four, three);
+
+
+    System.out.println(five.toStringPrefix());
+    System.out.println(five.toStringPostfix());
+    System.out.println(five);
+    System.out.println(five.evaluate());
   }
 
 }
