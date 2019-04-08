@@ -76,8 +76,14 @@ public class ExpressionTree{
   /* The sample tree would be: "+ 3 * 2 10"     */
 
   public String toStringPrefix(){
-    /*you are to write this method*/
-    return "";
+    if(isValue()){
+      return  "" + getValue();
+    }
+    else{
+      return  getOp()
+      + getLeft().toStringPrefix() + " "
+      + getRight().toStringPrefix() + " ";
+    }
   }
 
 
@@ -102,7 +108,7 @@ public class ExpressionTree{
     ExpressionTree one = new ExpressionTree(4.0);
     ExpressionTree two = new ExpressionTree(4.0);
     ExpressionTree three = new ExpressionTree('+', one, two);
-    System.out.println(three.toStringPostfix());
+    System.out.println(three.toStringPrefix());
   }
 
 }
