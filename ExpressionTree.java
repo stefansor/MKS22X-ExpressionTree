@@ -80,9 +80,9 @@ public class ExpressionTree{
       return  "" + getValue();
     }
     else{
-      return  getOp()
+      return  getOp() + " "
       + getLeft().toStringPrefix() + " "
-      + getRight().toStringPrefix() + " ";
+      + getRight().toStringPrefix();
     }
   }
 
