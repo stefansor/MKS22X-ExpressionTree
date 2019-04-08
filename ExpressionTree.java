@@ -99,9 +99,18 @@ public class ExpressionTree{
 
   /*use the correct operator on both a and b, and return that value*/
   private double apply(char op, double a, double b){
-    /*you are to write this method*/
-    return 0.0;
-
+    if(op == '+'){
+      return a + b;
+    }
+    else if(op == '-'){
+      return a - b;
+    }
+    else if(op == '*'){
+      return a * b;
+    }
+    else{
+      return a / b;
+    }
   }
 
   public static void main(String[] args){
@@ -109,6 +118,7 @@ public class ExpressionTree{
     ExpressionTree two = new ExpressionTree(4.0);
     ExpressionTree three = new ExpressionTree('+', one, two);
     System.out.println(three.toStringPrefix());
+    System.out.println(three.apply('*', 4.0, 4.0));
   }
 
 }
